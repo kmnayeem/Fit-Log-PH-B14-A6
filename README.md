@@ -1,31 +1,29 @@
-🏋️ Fit-Log-PH-B14-A6
+# Fit-Log
 
-Track Your Workouts. Keep Moving. 💪
+**Track your workouts. Keep moving.**
 
-📌 About the Project
+Fit-Log is a fitness and workout web application developed for the **Programming Hero B14 A6 assignment — Milestone 6: Next.js Foundation**. It helps users explore workouts, review exercise instructions, and learn about target muscle groups, required equipment, difficulty levels, duration, calories burned, and ratings when available.
 
-Fit-Log-PH-B14-A6 is a fitness and workout web application built as part of the Programming Hero B14 A6 assignment for Milestone 6: Next.js Foundation.
+## Features
 
-The main purpose of this project is to help users explore different workouts and learn more about each exercise. Users can browse workouts, read exercise instructions, discover target muscle groups, and check information such as required equipment, difficulty levels, duration, calories burned, and ratings.
+- **Workout listing:** Browse workouts, images, and target muscle groups.
+- **Workout details:** View available exercise information, including equipment, difficulty, sets, reps, duration, calories burned, and ratings.
+- **Exercise instructions:** Read exercise descriptions and step-by-step instructions.
+- **Responsive design:** Use the application on mobile phones, tablets, and desktop devices.
+- **Dynamic navigation:** Navigate using the Next.js App Router, with dynamic workout detail pages, loading states, and custom not-found pages.
 
-I built this project using Next.js, React, and TypeScript. I focused on creating a clean interface that is easy to navigate and works well on different screen sizes.
+## Technologies Used
 
-✨ Key Features
-Workout Listing: Browse different workouts and explore their names, images, and target muscle groups.
-Workout Details: View exercise information, including equipment, difficulty, sets, reps, duration, calories burned, and ratings when available.
-Exercise Instructions: Read exercise descriptions and step-by-step instructions to learn how to perform different workouts.
-Responsive Design: Enjoy a user-friendly experience on mobile phones, tablets, and desktop devices.
-Dynamic Navigation: Navigate between pages using the Next.js App Router, with dynamic workout detail pages, loading states, and custom not-found pages.
-🛠️ Technologies Used
-Technology	Purpose
-Next.js	Building the web application and user interface
-Next.js App Router	Handling page navigation, layouts, and dynamic routes
-React	Creating reusable and interactive UI components
-TypeScript	Writing type-safe and maintainable code
-Tailwind CSS	Styling the application and making it responsive
-React Icons	Adding icons to the user interface
-REST API	Fetching workout data from an external API
-📂 Project Structure
+- Next.js and the Next.js App Router
+- React
+- TypeScript
+- Tailwind CSS
+- React Icons
+- REST API
+
+## Project Structure
+
+```text
 Fit-Log-PH-B14-A6/
 ├── public/
 ├── src/
@@ -60,68 +58,64 @@ Fit-Log-PH-B14-A6/
 │       └── work.type.ts
 ├── package.json
 └── README.md
+```
 
-🚀 Getting Started
+## Getting Started
 
-Follow these steps to run the project on your local machine.
+### Prerequisites
 
-Prerequisites
+Make sure the following are installed on your system:
 
-Make sure you have installed:
+- [Node.js](https://nodejs.org/)
+- npm
+- [Git](https://git-scm.com/)
 
-Node.js
-npm
-Git
-Installation
+### Installation
 
-1. Clone the repository
+1. Clone the repository:
 
-git clone YOUR_REPOSITORY_URL
+   ```bash
+   git clone YOUR_REPOSITORY_URL
+   ```
 
+   Replace `YOUR_REPOSITORY_URL` with the URL of your GitHub repository.
 
-2. Go to the project directory
+2. Navigate to the project directory:
 
-cd Fit-Log-PH-B14-A6
+   ```bash
+   cd Fit-Log-PH-B14-A6
+   ```
 
+3. Install the dependencies:
 
-3. Install the dependencies
+   ```bash
+   npm install
+   ```
 
-npm install
+4. Start the development server:
 
+   ```bash
+   npm run dev
+   ```
 
-4. Start the development server
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-npm run dev
+## API
 
+The application uses an external REST API to retrieve workout information.
 
-5. Open the application
+**API endpoint:** `https://api.abcz.workers.dev/api/fitlog`
 
-Visit http://localhost:3000 in your browser.
+## Design
 
-🔗 API
+Fit-Log uses a dark theme with lime-green accents to create a modern, fitness-inspired interface. Its responsive layout keeps workout information organized and accessible across different screen sizes.
 
-This project uses an external REST API to fetch workout information.
+## Author
 
-API Endpoint: https://api.abcz.workers.dev/api/fitlog
+**@kmnayeem**
 
-The retrieved data is used to display workout information throughout the application.
+This project is part of my learning journey with Programming Hero. Through its development, I practiced Next.js fundamentals, reusable React components, dynamic routing, TypeScript, API integration, and responsive web design.
 
-🎨 Design
+---
 
-Fit-Log features a dark theme with lime-green accents to create a modern, fitness-inspired look. The layout keeps workout information organized and easy to read, while responsive styling helps the application work across different devices.
-
-🎓 Project Information
-Project Name: Fit-Log-PH-B14-A6
-Course: Programming Hero
-Assignment: B14 A6
-Milestone: 6 — Next.js Foundation
-Project Type: Fitness and Workout Web Application
-👨‍💻 Author
-
-K. M. Nayeem
-
-GitHub: @kmnayeem
-
-This project is part of my learning journey with Programming Hero. While building it, I practiced Next.js fundamentals, reusable React components, dynamic routing, TypeScript, API integration, and responsive web design.
-
-Fit-Log — Stay Active. Stay Consistent. Keep Moving. 💪
+**Fit-Log — Your journey to a stronger you.**
