@@ -14,12 +14,22 @@ Fit-Log is a fitness and workout web application developed for the **Programming
 
 ## Technologies Used
 
-- Next.js and the Next.js App Router
-- React
-- TypeScript
-- Tailwind CSS
-- React Icons
-- REST API
+| Technology | Purpose |
+|---|---|
+| [Next.js](https://nextjs.org/) | Application framework, routing, and page rendering |
+| [React](https://react.dev/) | Building reusable user interface components |
+| [TypeScript](https://www.typescriptlang.org/) | Adding static typing to the application |
+| [Tailwind CSS](https://tailwindcss.com/) | Styling the responsive interface |
+| [React Icons](https://react-icons.github.io/react-icons/) | Providing icons for the user interface |
+| REST API | Fetching workout data |
+
+## Key Features
+
+1. Browse workouts with images and target muscle groups.
+2. View workout details, including equipment, difficulty, sets, reps, duration, calories burned, and ratings when available.
+3. Read exercise descriptions and step-by-step instructions.
+4. Navigate to workout-specific pages using dynamic routes in the Next.js App Router.
+5. Use the responsive interface across mobile, tablet, and desktop screen sizes.
 
 ## Project Structure
 
@@ -64,51 +74,34 @@ Fit-Log-PH-B14-A6/
 
 ### Prerequisites
 
-Make sure the following are installed on your system:
-
-- [Node.js](https://nodejs.org/)
-- npm
-- [Git](https://git-scm.com/)
+Install [Node.js](https://nodejs.org/) and [Git](https://git-scm.com/). npm is included with Node.js.
 
 ### Installation
 
-1. Clone the repository:
-
-   ```bash
-   git clone YOUR_REPOSITORY_URL
-   ```
-
-   Replace `YOUR_REPOSITORY_URL` with the URL of your GitHub repository.
-
-2. Navigate to the project directory:
-
-   ```bash
-   cd Fit-Log-PH-B14-A6
-   ```
-
-3. Install the dependencies:
+1. Open a terminal in the project directory.
+2. Install the project dependencies:
 
    ```bash
    npm install
    ```
 
-4. Start the development server:
+3. Start the development server:
 
    ```bash
    npm run dev
    ```
 
-5. Open [http://localhost:3000](http://localhost:3000) in your browser.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## API
 
-The application uses an external REST API to retrieve workout information.
+The application retrieves workout information from this REST API endpoint:
 
-**API endpoint:** `https://api.abcz.workers.dev/api/fitlog`
+[https://api.abcz.workers.dev/api/fitlog](https://api.abcz.workers.dev/api/fitlog)
 
 ## Design
 
-Fit-Log uses a dark theme with lime-green accents to create a modern, fitness-inspired interface. Its responsive layout keeps workout information organized and accessible across different screen sizes.
+Fit-Log features a dark interface with lime-green accents. Its responsive layout keeps workout information clear and accessible across different screen sizes.
 
 ## Author
 
