@@ -1,4 +1,3 @@
-
 import DetailsPageButton from '@/components/DetailsPageButton';
 import { getSingleWorks } from '@/lib/api';
 import Image from 'next/image';
@@ -104,7 +103,7 @@ const WorkOutsDetailsPage = async ({
                     </ol>
 
                     {/* Buttons */}
-                    <DetailsPageButton/>
+                    <DetailsPageButton work={work} />
                 </div>
 
             </div>
