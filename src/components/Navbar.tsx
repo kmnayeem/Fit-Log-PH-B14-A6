@@ -32,14 +32,14 @@ const Navbar = () => {
               type="button"
               tabIndex={0}
               aria-label="Open navigation menu"
-              className="btn btn-ghost btn-square btn-sm min-h-9 min-w-9 shrink-0"
+              className="btn btn-ghost btn-square btn-sm min-h-9 min-w-9 shrink-0 !text-[#C2F10D] hover:!bg-white/10"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
+                stroke="#C2F10D"
               >
                 <path
                   strokeLinecap="round"
