@@ -1,8 +1,18 @@
 import React from "react";
 import Image from "next/image";
 import logo from "@/assets/logo.png";
+import Link from "next/link";
 
 const Navbar = () => {
+  const navLinks = <>
+    <Link href={'/'}>
+      <li>Workouts</li>
+    </Link>
+    <Link href={'/'}>
+      <li>My Plan</li>
+    </Link>
+  </>
+
   return (
     <header className="w-full bg-[#1C2128] text-white">
       <div className="navbar mx-auto min-h-[62px] w-full max-w-[1504px] px-4 sm:px-6 md:px-8 xl:px-10">
@@ -34,25 +44,7 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content z-50 mt-3 w-52 rounded-box bg-[#1C2128] p-2 shadow-xl"
             >
-              <li>
-                <a href="#">Item 1</a>
-              </li>
-              <li>
-                <details>
-                  <summary>Parent</summary>
-                  <ul className="p-2">
-                    <li>
-                      <a href="#">Submenu 1</a>
-                    </li>
-                    <li>
-                      <a href="#">Submenu 2</a>
-                    </li>
-                  </ul>
-                </details>
-              </li>
-              <li>
-                <a href="#">Item 3</a>
-              </li>
+              {navLinks}
             </ul>
           </div>
 
@@ -74,25 +66,7 @@ const Navbar = () => {
 
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal items-center gap-1 px-1 text-sm">
-            <li>
-              <a href="#">Item 1</a>
-            </li>
-            <li>
-              <details>
-                <summary>Parent</summary>
-                <ul className="z-50 w-40 rounded-box bg-[#1C2128] p-2 shadow-xl">
-                  <li>
-                    <a href="#">Submenu 1</a>
-                  </li>
-                  <li>
-                    <a href="#">Submenu 2</a>
-                  </li>
-                </ul>
-              </details>
-            </li>
-            <li>
-              <a href="#">Item 3</a>
-            </li>
+            {navLinks}
           </ul>
         </div>
 

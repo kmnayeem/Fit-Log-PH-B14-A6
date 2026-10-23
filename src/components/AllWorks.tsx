@@ -1,0 +1,25 @@
+import { IWorkout } from '@/Types/work.type';
+import React from 'react';
+import WorkOutCard from './WorkOutCard';
+
+const AllWorks = ({ works }: { works: IWorkout[] }) => {
+    return (
+        <div className="container mx-auto mt-8 sm:mt-10 lg:mt-12">
+            <h2 className="font-oswald text-lg font-bold uppercase leading-tight tracking-tight text-[#FFFFFF] sm:text-xl lg:text-2xl">
+                THE LIBRARY
+            </h2>
+
+            <p className="mt-1 font-sans text-[11px] leading-relaxed text-[#9CA3AF] sm:text-xs lg:text-sm">
+                Twelve lifts covering every major muscle group.
+            </p>
+
+            <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
+                {works.map((work) => (
+                    <WorkOutCard key={work.id} works={work} />
+                ))}
+            </div>
+        </div>
+    );
+};
+
+export default AllWorks;
