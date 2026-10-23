@@ -1,4 +1,3 @@
-export const instant = false
 import AllWorks from "@/components/AllWorks";
 import Banner from "@/components/Banner";
 import { getAllWorks } from "@/lib/api";
