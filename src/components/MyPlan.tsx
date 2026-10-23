@@ -21,7 +21,7 @@ const MyPlan = () => {
     const sortedList = [...currentList].sort((a, b) => {
         if (sortBy === "Duration") return a.duration - b.duration;
         if (sortBy === "Calories") return a.caloriesBurned - b.caloriesBurned;
-        if (sortBy === "Rating") return a.rating - b.rating;
+        if (sortBy === "Rating") return b.rating - a.rating;
         return 0;
     });
 

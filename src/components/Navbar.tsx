@@ -1,10 +1,15 @@
+'use client';
+
 import React from "react";
 import Image from "next/image";
 import logo from "@/assets/logo.png";
 import Link from "next/link";
 import NavLinks from "./NavLinks";
+import { useWOContext } from "@/context/WOContext";
 
 const Navbar = () => {
+  const { buildList, wishList } = useWOContext();
+
   const navLinks = (
     <>
       <li>
@@ -19,6 +24,7 @@ const Navbar = () => {
   return (
     <header className="w-full bg-[#0C0D10] text-white">
       <div className="navbar mx-auto min-h-[70px] w-full max-w-[1504px] px-4 sm:px-6 md:px-8 xl:px-10">
+
         <div className="navbar-start gap-2">
           <div className="dropdown lg:hidden">
             <button
@@ -53,7 +59,7 @@ const Navbar = () => {
 
           <Link
             href="/"
-            className="btn btn-ghost flex cursor-default items-center gap-2 text-white hover:bg-transparent hover:text-white active:bg-transparent"
+            className="btn btn-ghost flex cursor-pointer items-center gap-2 text-white hover:bg-transparent hover:text-white"
           >
             <Image
               src={logo}
@@ -74,20 +80,30 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <div className="navbar-end gap-3">
+        <div className="navbar-end gap-3 sm:gap-6">
+
           <Link
-            className="btn btn-sm min-w-[76px]"
             href="/myplan"
+            className="flex items-center gap-2 text-sm font-medium text-[#C7CBD1] transition hover:text-white sm:gap-3 sm:text-base"
           >
-            Plan
+            <span>Plan</span>
+
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#C2F10D] text-sm font-bold text-black">
+              {buildList.length}
+            </span>
           </Link>
 
           <Link
-            className="btn btn-sm min-w-[76px]"
             href="/myplan"
+            className="flex items-center gap-2 text-sm font-medium text-[#A0A6B1] transition hover:text-white sm:gap-3 sm:text-base"
           >
-            Saved
+            <span>Saved</span>
+
+            <span className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-[#2B303A] text-sm font-medium text-[#D1D5DB]">
+              {wishList.length}
+            </span>
           </Link>
+
         </div>
       </div>
     </header>
