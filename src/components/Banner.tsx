@@ -1,10 +1,11 @@
 import React from "react";
 import Image from "next/image";
 import bannerLogo from "@/assets/banner.png";
+import { ArrowDownRight } from "lucide-react";
 
 const Banner = () => {
   return (
-    <section className="container mx-auto mt-10 mb-10 rounded-xl bg-[#15171D] text-white">
+    <section className="container mx-auto mt-[100px] mb-10 rounded-xl bg-[#15171D] text-white">
       <div className="grid min-h-[480px] grid-cols-1 items-center gap-6 px-4 py-12 sm:px-6 md:grid-cols-[1fr_300px] md:gap-10 md:px-8 lg:grid-cols-[1fr_320px]">
         <div className="order-2 space-y-6 md:order-1">
           <p className="text-[10px] font-extrabold uppercase tracking-wider text-[#C2F800]">
@@ -22,12 +23,13 @@ const Banner = () => {
             into today&apos;s plan, and watch the week&apos;s work add up.
           </p>
 
-          <button
-            type="button"
-            className="rounded-md bg-[#C2F800] px-5 py-[11px] text-[10px] font-extrabold uppercase text-black transition-colors hover:bg-[#B0E600]"
+          <a
+            href="#library"
+            className="inline-flex items-center gap-2 rounded-md bg-[#C2F800] px-5 py-[11px] text-[10px] font-extrabold uppercase text-black transition-colors hover:bg-[#B0E600]"
           >
             Browse Workouts
-          </button>
+            <ArrowDownRight size={16} strokeWidth={2.5} />
+          </a>
         </div>
 
         <div className="order-1 flex items-center justify-center md:order-2">

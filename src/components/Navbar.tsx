@@ -22,7 +22,7 @@ const Navbar = () => {
   );
 
   return (
-    <header className="w-full bg-[#0C0D10] text-white">
+    <header className="fixed top-0 left-0 z-50 w-full bg-[#0C0D10]/95 text-white backdrop-blur-xl after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:bg-gradient-to-r after:from-transparent after:via-[#C2F10D]/60 after:to-transparent">
       <div className="navbar mx-auto min-h-[70px] w-full max-w-[1504px] px-4 sm:px-6 md:px-8 xl:px-10">
 
         <div className="navbar-start gap-2">
@@ -75,7 +75,7 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal items-center gap-4 px-1 text-sm">
+          <ul className="menu menu-horizontal items-center gap-4 bg-transparent px-1 text-sm">
             {navLinks}
           </ul>
         </div>

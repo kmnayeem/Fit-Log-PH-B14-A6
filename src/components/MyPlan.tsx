@@ -40,10 +40,15 @@ const MyPlan = () => {
     };
 
     const handleComplete = (id: number) => {
-        if (orderId.includes(id)) return;
+        const workoutExists = buildList.some((item) => item.id === id);
 
-        setOrderId((prev) => [...prev, id]);
+        if (!workoutExists) return;
+
         setBuildList((prev) => prev.filter((item) => item.id !== id));
+
+        setOrderId((prev) =>
+            prev.includes(id) ? prev : [...prev, id]
+        );
 
         toast.success('Workout completed!');
     };
@@ -51,19 +56,19 @@ const MyPlan = () => {
     const renderTabContent = () => {
         if (sortedList.length === 0) {
             return (
-                <div className="flex h-[210px] w-full items-center justify-center border-b border-[#1A1A1A] bg-[#111317] text-center">
-                    <div>
-                        <h3 className="mb-1 text-[16px] font-extrabold leading-5 text-white">
+                <div className="flex min-h-[300px] w-full items-center justify-center rounded-2xl border border-dashed border-[#222630] bg-[#101216] text-center sm:min-h-[340px]">
+                    <div className="px-5">
+                        <h3 className="mb-2 text-lg font-extrabold leading-6 text-white">
                             NOTHING HERE YET
                         </h3>
 
-                        <p className="mb-[17px] text-[9px] leading-[13px] text-[#92949B]">
+                        <p className="mb-5 text-xs leading-5 text-[#92949B]">
                             Browse the library and add a lift to get today moving.
                         </p>
 
                         <Link
                             href="/"
-                            className="inline-flex h-[27px] min-w-[97px] items-center justify-center rounded-full bg-[#C2F10D] px-[18px] text-[9px] font-semibold text-black transition hover:bg-[#D4FF27]"
+                            className="inline-flex h-10 min-w-[140px] items-center justify-center rounded-full bg-[#C2F10D] px-6 text-xs font-semibold text-black transition hover:bg-[#D4FF27]"
                         >
                             Go to workouts
                         </Link>
@@ -73,46 +78,46 @@ const MyPlan = () => {
         }
 
         return (
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-3">
                 {sortedList.map((item) => (
                     <div
                         key={item.id}
-                        className="flex min-h-[72px] w-full items-center gap-2 rounded-[10px] border border-[#222630] bg-[#15171D] px-2 py-1.5"
+                        className="flex min-h-[92px] w-full items-center gap-4 rounded-xl border border-[#222630] bg-[#15171D] px-4 py-3"
                     >
                         <Link
                             href={`/workouts/${item.id}`}
-                            className="relative h-[56px] w-[104px] shrink-0 overflow-hidden rounded-md"
+                            className="relative h-[72px] w-[120px] shrink-0 overflow-hidden rounded-lg"
                         >
                             <Image
                                 src={item.image}
                                 alt={item.name}
                                 fill
-                                sizes="104px"
+                                sizes="120px"
                                 className="object-cover"
                             />
                         </Link>
 
                         <div className="min-w-0 flex-1">
-                            <h2 className="truncate text-[11px] font-extrabold uppercase leading-[15px] text-white">
+                            <h2 className="truncate text-sm font-extrabold uppercase leading-5 text-white">
                                 {item.name}
                             </h2>
 
-                            <p className="truncate text-[9px] leading-[13px] text-[#92949B]">
+                            <p className="truncate text-xs leading-5 text-[#92949B]">
                                 {item.equipment}
                             </p>
 
-                            <div className="mt-1 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[9px] leading-3 text-[#A1A4AD]">
-                                <span className="flex items-center gap-1 whitespace-nowrap">
+                            <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs leading-4 text-[#A1A4AD]">
+                                <span className="flex items-center gap-1.5 whitespace-nowrap">
                                     <FaRegClock className="text-[#C2F800]" />
                                     {item.duration} min
                                 </span>
 
-                                <span className="flex items-center gap-1 whitespace-nowrap">
+                                <span className="flex items-center gap-1.5 whitespace-nowrap">
                                     <FaFire className="text-[#C2F800]" />
                                     {item.caloriesBurned} kcal
                                 </span>
 
-                                <span className="flex items-center gap-1 whitespace-nowrap">
+                                <span className="flex items-center gap-1.5 whitespace-nowrap">
                                     <FaRegStar className="text-[#C2F800]" />
                                     {item.rating}
                                 </span>
@@ -121,7 +126,7 @@ const MyPlan = () => {
 
                         <Link
                             href={`/workouts/${item.id}`}
-                            className="hidden h-[25px] shrink-0 cursor-pointer items-center justify-center whitespace-nowrap rounded-full border border-[#303541] px-3 text-[8px] text-white transition hover:bg-[#252832] sm:inline-flex"
+                            className="hidden h-9 shrink-0 cursor-pointer items-center justify-center whitespace-nowrap rounded-full border border-[#303541] px-4 text-xs text-white transition hover:bg-[#252832] sm:inline-flex"
                         >
                             View Details
                         </Link>
@@ -130,10 +135,9 @@ const MyPlan = () => {
                             <button
                                 type="button"
                                 onClick={() => handleComplete(item.id)}
-                                disabled={orderId.includes(item.id)}
-                                className="inline-flex h-[25px] shrink-0 cursor-pointer items-center justify-center gap-1 whitespace-nowrap rounded-full bg-[#C2F10D] px-3 text-[8px] font-bold text-black transition hover:bg-[#D4FF27] disabled:cursor-not-allowed disabled:opacity-60"
+                                className="relative z-10 inline-flex h-9 shrink-0 cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-full bg-[#C2F10D] px-4 text-xs font-bold text-black transition hover:bg-[#D4FF27] active:scale-95"
                             >
-                                <FaCheck size={8} />
+                                <FaCheck size={12} />
                                 Mark as Done
                             </button>
                         )}
@@ -143,9 +147,9 @@ const MyPlan = () => {
                             onClick={() => handleRemove(item.id)}
                             aria-label={`Remove ${item.name}`}
                             title="Remove workout"
-                            className="shrink-0 cursor-pointer p-1 text-[#777B86] transition hover:text-white"
+                            className="relative z-10 shrink-0 cursor-pointer p-2 text-[#777B86] transition hover:text-white"
                         >
-                            <FaTimes size={10} />
+                            <FaTimes size={14} />
                         </button>
                     </div>
                 ))}
@@ -154,66 +158,86 @@ const MyPlan = () => {
     };
 
     return (
-        <div className="container mx-auto flex w-full max-w-7xl flex-col gap-8 px-4 py-8 sm:px-6 lg:px-8">
-            <div className="stats stats-vertical w-full shadow sm:stats-horizontal">
-                <div className="stat">
-                    <div className="stat-title">Exercises</div>
-                    <div className="stat-value text-[#CCFF00]">{totalPlan}</div>
+        <div className="container mx-auto flex w-full max-w-[1400px] flex-col gap-7 px-6 py-6 sm:px-8 lg:px-10">
+            <div className="stats stats-horizontal w-full rounded-2xl border border-[#222630] bg-[#13161C] shadow-none">
+                <div className="stat px-6 py-5">
+                    <div className="stat-title text-xs text-[#92949B]">
+                        Exercises
+                    </div>
+                    <div className="stat-value text-4xl leading-[1.2] text-[#CCFF00]">
+                        {totalPlan}
+                    </div>
                 </div>
 
-                <div className="stat">
-                    <div className="stat-title">Minutes</div>
-                    <div className="stat-value">{totalDuration}</div>
+                <div className="stat border-l border-[#1C2028] px-6 py-5">
+                    <div className="stat-title text-xs text-[#92949B]">
+                        Minutes
+                    </div>
+                    <div className="stat-value text-4xl leading-[1.2] text-white">
+                        {totalDuration}
+                    </div>
                 </div>
 
-                <div className="stat">
-                    <div className="stat-title">Calories</div>
-                    <div className="stat-value">{totalCalories}</div>
+                <div className="stat border-l border-[#1C2028] px-6 py-5">
+                    <div className="stat-title text-xs text-[#92949B]">
+                        Calories
+                    </div>
+                    <div className="stat-value text-4xl leading-[1.2] text-white">
+                        {totalCalories}
+                    </div>
                 </div>
             </div>
 
-            <div className="tabs tabs-box w-full flex-wrap">
-                <input
-                    type="radio"
-                    name="my_tabs_6"
-                    className="tab"
-                    aria-label="Today’s Plan"
-                    checked={activeTab === "Today’s Plan"}
-                    onChange={() => setActiveTab("Today’s Plan")}
-                />
+            <div className="flex w-full flex-wrap items-center gap-4">
+                <div className="flex h-10 items-center rounded-xl border border-[#222630] bg-[#15171D] p-1">
+                    <button
+                        type="button"
+                        onClick={() => setActiveTab("Today’s Plan")}
+                        className={`h-8 rounded-lg px-5 text-xs transition ${
+                            activeTab === "Today’s Plan"
+                                ? "bg-[#20242D] text-white"
+                                : "text-[#92949B] hover:text-white"
+                        }`}
+                    >
+                        Today’s Plan
+                    </button>
 
-                <div className="tab-content w-full border-base-300 bg-base-100 p-6">
-                    {activeTab === "Today’s Plan" && renderTabContent()}
+                    <button
+                        type="button"
+                        onClick={() => setActiveTab("Saved")}
+                        className={`h-8 rounded-lg px-5 text-xs font-semibold transition ${
+                            activeTab === "Saved"
+                                ? "bg-[#20242D] text-white"
+                                : "text-[#92949B] hover:text-white"
+                        }`}
+                    >
+                        Saved
+                    </button>
                 </div>
 
-                <input
-                    type="radio"
-                    name="my_tabs_6"
-                    className="tab"
-                    aria-label="Saved"
-                    checked={activeTab === "Saved"}
-                    onChange={() => setActiveTab("Saved")}
-                />
-
-                <div className="tab-content w-full border-base-300 bg-base-100 p-6">
-                    {activeTab === "Saved" && renderTabContent()}
-                </div>
-
-                <div className="ms-auto flex items-center gap-3">
-                    <span className="text-sm text-base-content/60">Sort By</span>
+                <div className="ml-auto flex items-center gap-3">
+                    <span className="text-xs text-[#92949B]">
+                        Sort By
+                    </span>
 
                     <select
                         value={sortBy}
                         onChange={(e) =>
-                            setSortBy(e.target.value as "Duration" | "Calories" | "Rating")
+                            setSortBy(
+                                e.target.value as "Duration" | "Calories" | "Rating"
+                            )
                         }
-                        className="select select-bordered select-sm h-10 min-h-0 w-32 rounded-2xl border-base-300 bg-base-100 px-3 text-sm"
+                        className="h-9 min-h-0 w-28 rounded-xl border border-[#222630] bg-[#13161C] px-3 text-xs text-white outline-none"
                     >
                         <option value="Duration">Duration</option>
                         <option value="Calories">Calories</option>
                         <option value="Rating">Rating</option>
                     </select>
                 </div>
+            </div>
+
+            <div className="w-full">
+                {renderTabContent()}
             </div>
         </div>
     );
