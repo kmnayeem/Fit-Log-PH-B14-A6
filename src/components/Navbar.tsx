@@ -1,86 +1,112 @@
 import React from "react";
-import logo from '@/assets/logo.png';
 import Image from "next/image";
+import logo from "@/assets/logo.png";
 
 const Navbar = () => {
-    return (
-        <div>
-            <div className="navbar bg-base-100 shadow-sm">
-                <div className="navbar-start">
-                    <div className="dropdown">
-                        <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-                            <svg
-                                aria-label="Menu"
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="h-5 w-5"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                                {" "}
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    d="M4 6h16M4 12h8m-8 6h16"
-                                />{" "}
-                            </svg>
-                        </div>
-                        <ul
-                            tabIndex={-1}
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-                        >
-                            <li>
-                                <a>Item 1</a>
-                            </li>
-                            <li>
-                                <a>Parent</a>
-                                <ul className="p-2">
-                                    <li>
-                                        <a>Submenu 1</a>
-                                    </li>
-                                    <li>
-                                        <a>Submenu 2</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a>Item 3</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <Image src={logo} />
-                    <a className="btn btn-ghost text-xl">FITLOG</a>
-                </div>
-                <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
-                        <li>
-                            <a>Item 1</a>
-                        </li>
-                        <li>
-                            <details>
-                                <summary>Parent</summary>
-                                <ul className="p-2 bg-base-100 w-40 z-1">
-                                    <li>
-                                        <a>Submenu 1</a>
-                                    </li>
-                                    <li>
-                                        <a>Submenu 2</a>
-                                    </li>
-                                </ul>
-                            </details>
-                        </li>
-                        <li>
-                            <a>Item 3</a>
-                        </li>
-                    </ul>
-                </div>
-                <div className="navbar-end">
-                    <a className="btn">Button</a>
-                </div>
-            </div>
+  return (
+    <header className="w-full bg-[#1C2128] text-white">
+      <div className="navbar mx-auto min-h-[62px] w-full max-w-[1504px] px-4 sm:px-6 md:px-8 xl:px-10">
+        <div className="navbar-start gap-1">
+          <div className="dropdown lg:hidden">
+            <button
+              type="button"
+              tabIndex={0}
+              aria-label="Open navigation menu"
+              className="btn btn-ghost btn-sm"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </button>
+
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content z-50 mt-3 w-52 rounded-box bg-[#1C2128] p-2 shadow-xl"
+            >
+              <li>
+                <a href="#">Item 1</a>
+              </li>
+              <li>
+                <details>
+                  <summary>Parent</summary>
+                  <ul className="p-2">
+                    <li>
+                      <a href="#">Submenu 1</a>
+                    </li>
+                    <li>
+                      <a href="#">Submenu 2</a>
+                    </li>
+                  </ul>
+                </details>
+              </li>
+              <li>
+                <a href="#">Item 3</a>
+              </li>
+            </ul>
+          </div>
+
+          <a href="/" className="flex items-center gap-1">
+            <Image
+              src={logo}
+              alt="FitLog logo"
+              width={32}
+              height={32}
+              priority
+              className="h-8 w-8 object-contain"
+            />
+
+            <span className="btn btn-ghost btn-sm text-xl font-bold">
+              FITLOG
+            </span>
+          </a>
         </div>
-    );
+
+        <div className="navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal items-center gap-1 px-1 text-sm">
+            <li>
+              <a href="#">Item 1</a>
+            </li>
+            <li>
+              <details>
+                <summary>Parent</summary>
+                <ul className="z-50 w-40 rounded-box bg-[#1C2128] p-2 shadow-xl">
+                  <li>
+                    <a href="#">Submenu 1</a>
+                  </li>
+                  <li>
+                    <a href="#">Submenu 2</a>
+                  </li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <a href="#">Item 3</a>
+            </li>
+          </ul>
+        </div>
+
+        <div className="navbar-end">
+          <button
+            type="button"
+            className="btn btn-sm border border-[#292D35] bg-[#191D24] px-4 text-white hover:bg-[#292D35]"
+          >
+            Button
+          </button>
+        </div>
+      </div>
+    </header>
+  );
 };
 
 export default Navbar;

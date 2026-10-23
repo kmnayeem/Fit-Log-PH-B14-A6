@@ -1,6 +1,11 @@
-
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Oswald, Inter } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Oswald,
+  Inter,
+} from "next/font/google";
+
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
 import Navbar from "@/components/Navbar";
@@ -39,20 +44,16 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${oswald.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col">
-        <nav>
-          <Navbar />
-        </nav>
+      <body className="flex min-h-screen flex-col bg-[#0A0A0A] text-white">
+        <Navbar />
 
-        <main className="flex-1">
+        <main className="w-full flex-1">
           {children}
         </main>
 
         <Toaster />
 
-        <footer className="mt-auto">
-          <Footer />
-        </footer>
+        <Footer />
       </body>
     </html>
   );
