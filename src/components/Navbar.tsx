@@ -2,15 +2,16 @@ import React from "react";
 import Image from "next/image";
 import logo from "@/assets/logo.png";
 import Link from "next/link";
+import NavLinks from "./NavLinks";
 
 const Navbar = () => {
   const navLinks = <>
-    <Link href={'/'}>
-      <li>Workouts</li>
-    </Link>
-    <Link href={'/'}>
-      <li>My Plan</li>
-    </Link>
+    <li><NavLinks href={'/'}>
+      Workouts
+    </NavLinks></li>
+    <li><NavLinks href={'/myplan'}>
+      My Plan
+    </NavLinks></li>
   </>
 
   return (
