@@ -1,10 +1,14 @@
+
 export const getAllWorks = async () => {
   const res = await fetch(
-    'https://api.abcz.workers.dev/api/fitlog'
+    "https://api.abcz.workers.dev/api/fitlog",
+    {
+      cache: "no-store",
+    }
   );
 
   if (!res.ok) {
-    throw new Error('Failed to fetch workouts');
+    throw new Error("Failed to fetch workouts");
   }
 
   return res.json();
@@ -13,18 +17,24 @@ export const getAllWorks = async () => {
 export const getSingleWorks = async (id: string) => {
   const res = await fetch(
     `https://api.abcz.workers.dev/api/fitlog/${id}`,
-    { cache: 'no-store' }
+    {
+      cache: "no-store",
+    }
   );
 
-  if (res.status === 404) return null;
+  if (res.status === 404) {
+    return null;
+  }
 
   if (!res.ok) {
-    throw new Error('Failed to fetch workout');
+    throw new Error("Failed to fetch workouts");
   }
 
   const work = await res.json();
 
-  if (!work || !work.name) return null;
+  if (!work || !work.name) {
+    return null;
+  }
 
   return work;
 };
