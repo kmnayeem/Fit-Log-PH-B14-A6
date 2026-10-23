@@ -1,4 +1,5 @@
 
+import DetailsPageButton from '@/components/DetailsPageButton';
 import { getSingleWorks } from '@/lib/api';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -103,21 +104,7 @@ const WorkOutsDetailsPage = async ({
                     </ol>
 
                     {/* Buttons */}
-                    <div className="mt-6 flex flex-wrap gap-3">
-                        <Link
-                            href="/workouts"
-                            className="rounded-lg bg-[#CCFF00] px-5 py-3 text-xs font-semibold text-black"
-                        >
-                            Add to today&apos;s plan
-                        </Link>
-
-                        <Link
-                            href="/workouts"
-                            className="rounded-lg border border-[#374151] px-5 py-3 text-xs text-white"
-                        >
-                            Save for later
-                        </Link>
-                    </div>
+                    <DetailsPageButton/>
                 </div>
 
             </div>

@@ -18,8 +18,8 @@ const Navbar = () => {
 
   return (
     <header className="w-full bg-[#0C0D10] text-white">
-      <div className="navbar mx-auto min-h-[62px] w-full max-w-[1504px] px-4 sm:px-6 md:px-8 xl:px-10">
-        <div className="navbar-start gap-1">
+      <div className="navbar mx-auto min-h-[70px] w-full max-w-[1504px] px-4 sm:px-6 md:px-8 xl:px-10">
+        <div className="navbar-start gap-2">
           <div className="dropdown lg:hidden">
             <button
               type="button"
@@ -53,7 +53,7 @@ const Navbar = () => {
 
           <Link
             href="/"
-            className="btn btn-ghost flex cursor-default items-center gap-1 text-white hover:bg-transparent hover:text-white active:bg-transparent"
+            className="btn btn-ghost flex cursor-default items-center gap-2 text-white hover:bg-transparent hover:text-white active:bg-transparent"
           >
             <Image
               src={logo}
@@ -69,14 +69,25 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal items-center gap-1 px-1 text-sm">
+          <ul className="menu menu-horizontal items-center gap-4 px-1 text-sm">
             {navLinks}
           </ul>
         </div>
 
-        <div className="navbar-end">
-          <Link className="btn" href={'/myplan'}> <button>Plan</button> </Link>
-          <Link className="btn" href={'/myplan'}> <button>Saved</button> </Link>
+        <div className="navbar-end gap-3">
+          <Link
+            className="btn btn-sm min-w-[76px]"
+            href="/myplan"
+          >
+            Plan
+          </Link>
+
+          <Link
+            className="btn btn-sm min-w-[76px]"
+            href="/myplan"
+          >
+            Saved
+          </Link>
         </div>
       </div>
     </header>

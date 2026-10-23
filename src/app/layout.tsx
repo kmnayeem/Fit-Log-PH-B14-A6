@@ -7,9 +7,7 @@ import {
 } from "next/font/google";
 
 import "./globals.css";
-import { Toaster } from "react-hot-toast";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import ClientLayout from "@/components/ClientLayout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -45,15 +43,9 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${oswald.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="flex min-h-screen flex-col bg-[#0A0A0A] text-white">
-        <Navbar />
-
-        <main className="w-full flex-1">
+        <ClientLayout>
           {children}
-        </main>
-
-        <Toaster />
-
-        <Footer />
+        </ClientLayout>
       </body>
     </html>
   );

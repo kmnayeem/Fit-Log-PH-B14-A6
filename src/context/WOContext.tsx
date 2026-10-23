@@ -1,11 +1,11 @@
 "use client";
 
 import { IWOContext, IWorkout } from "@/Types/work.type";
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useContext, useState } from "react";
 
 const WOContexts = createContext<IWOContext | undefined>(undefined);
 
-export function WOContext({ children }: { children: ReactNode }) {
+export function WOProvider({ children }: { children: ReactNode }) {
     const [buildList, setBuildList] = useState<IWorkout[]>([]);
     const [wishList, setWishList] = useState<IWorkout[]>([]);
 
@@ -24,3 +24,12 @@ export function WOContext({ children }: { children: ReactNode }) {
 }
 
 export default WOContexts;
+
+export function useWOContext() {
+    const context = useContext(WOContexts);
+    if(!context)
+    {
+        throw new Error ("useWOContext must be used within a WOProvider");
+    }
+    return context;
+}
