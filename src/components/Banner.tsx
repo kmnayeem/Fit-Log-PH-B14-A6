@@ -4,10 +4,10 @@ import bannerLogo from "@/assets/banner.png";
 
 const Banner = () => {
   return (
-    <section className="w-full bg-[#15171D] text-white">
-      <div className="mx-auto grid min-h-[370px] w-full max-w-[1504px] grid-cols-1 items-center gap-6 px-4 py-8 sm:px-6 md:grid-cols-[minmax(0,1fr)_300px] md:gap-10 md:px-8 md:py-7 lg:grid-cols-[minmax(0,1fr)_320px] xl:px-10">
-        <div className="order-2 min-w-0 md:order-1">
-          <p className="mb-5 text-[10px] font-extrabold uppercase tracking-[1px] text-[#C2F800]">
+    <section className="container mx-auto mt-6 rounded-xl bg-[#15171D] text-white">
+      <div className="grid min-h-[370px] grid-cols-1 items-center gap-6 px-4 py-8 sm:px-6 md:grid-cols-[1fr_300px] md:gap-10 md:px-8 lg:grid-cols-[1fr_320px]">
+        <div className="order-2 md:order-1">
+          <p className="mb-5 text-[10px] font-extrabold uppercase tracking-wider text-[#C2F800]">
             Workout Library
           </p>
 

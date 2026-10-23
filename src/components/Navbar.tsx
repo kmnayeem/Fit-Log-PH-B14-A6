@@ -5,17 +5,19 @@ import Link from "next/link";
 import NavLinks from "./NavLinks";
 
 const Navbar = () => {
-  const navLinks = <>
-    <li><NavLinks href={'/'}>
-      Workouts
-    </NavLinks></li>
-    <li><NavLinks href={'/myplan'}>
-      My Plan
-    </NavLinks></li>
-  </>
+  const navLinks = (
+    <>
+      <li>
+        <NavLinks href="/">Workouts</NavLinks>
+      </li>
+      <li>
+        <NavLinks href="/myplan">My Plan</NavLinks>
+      </li>
+    </>
+  );
 
   return (
-    <header className="w-full bg-[#1C2128] text-white">
+    <header className="w-full bg-[#0C0D10] text-white">
       <div className="navbar mx-auto min-h-[62px] w-full max-w-[1504px] px-4 sm:px-6 md:px-8 xl:px-10">
         <div className="navbar-start gap-1">
           <div className="dropdown lg:hidden">
@@ -49,7 +51,10 @@ const Navbar = () => {
             </ul>
           </div>
 
-          <a href="/" className="flex items-center gap-1">
+          <Link
+            href="/"
+            className="btn btn-ghost flex cursor-default items-center gap-1 text-white hover:bg-transparent hover:text-white active:bg-transparent"
+          >
             <Image
               src={logo}
               alt="FitLog logo"
@@ -59,10 +64,8 @@ const Navbar = () => {
               className="h-8 w-8 object-contain"
             />
 
-            <span className="btn btn-ghost btn-sm text-xl font-bold">
-              FITLOG
-            </span>
-          </a>
+            <span className="text-xl font-bold">FITLOG</span>
+          </Link>
         </div>
 
         <div className="navbar-center hidden lg:flex">
@@ -72,12 +75,8 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-end">
-          <button
-            type="button"
-            className="btn btn-sm border border-[#292D35] bg-[#191D24] px-4 text-white hover:bg-[#292D35]"
-          >
-            Button
-          </button>
+          <Link className="btn" href={'/myplan'}> <button>Plan</button> </Link>
+          <Link className="btn" href={'/myplan'}> <button>Saved</button> </Link>
         </div>
       </div>
     </header>

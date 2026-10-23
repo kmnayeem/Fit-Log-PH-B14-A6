@@ -1,11 +1,10 @@
-
 import React from "react";
 import Image from "next/image";
 import logo from "@/assets/Vector.png";
 
 const Footer = () => {
     return (
-        <footer className="flex min-h-28 items-center justify-between bg-[#090A0D] px-6 py-8 text-white sm:px-8 lg:px-10">
+        <footer className="mt-8 flex min-h-28 items-center justify-between bg-[#0C0D10] px-6 py-8 text-white sm:px-8 lg:px-10">
             <div className="flex items-center gap-2">
                 <Image
                     src={logo}

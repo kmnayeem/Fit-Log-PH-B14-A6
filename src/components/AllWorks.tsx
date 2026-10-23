@@ -5,7 +5,7 @@ import WorkOutCard from './WorkOutCard';
 const AllWorks = ({ works }: { works: IWorkout[] }) => {
     return (
         <div className="container mx-auto mt-8 sm:mt-10 lg:mt-12">
-            <h2 className="font-oswald text-lg font-bold uppercase leading-tight tracking-tight text-[#FFFFFF] sm:text-xl lg:text-2xl">
+            <h2 className="font-oswald text-xl font-bold uppercase leading-tight tracking-tight text-[#FFFFFF] sm:text-2xl lg:text-3xl">
                 THE LIBRARY
             </h2>
 
