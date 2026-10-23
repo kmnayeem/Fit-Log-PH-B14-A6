@@ -23,13 +23,6 @@ Fit-Log is a fitness and workout web application developed for the **Programming
 | [React Icons](https://react-icons.github.io/react-icons/) | Providing icons for the user interface |
 | REST API | Fetching workout data |
 
-## Key Features
-
-1. Browse workouts with images and target muscle groups.
-2. View workout details, including equipment, difficulty, sets, reps, duration, calories burned, and ratings when available.
-3. Read exercise descriptions and step-by-step instructions.
-4. Navigate to workout-specific pages using dynamic routes in the Next.js App Router.
-5. Use the responsive interface across mobile, tablet, and desktop screen sizes.
 
 ## Project Structure
 
