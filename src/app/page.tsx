@@ -4,12 +4,13 @@ import { getAllWorks } from "@/lib/api";
 import { IWorkout } from "@/Types/work.type";
 
 export default async function Home() {
+  
   const data = await getAllWorks();
-
+  const works:IWorkout[] = data;
   return (
     <div className="min-h-full w-full">
       <Banner />
-      <AllWorks works={data} />
+      <AllWorks works = {works} />
     </div>
   );
 }
