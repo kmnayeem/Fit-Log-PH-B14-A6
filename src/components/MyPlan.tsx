@@ -82,17 +82,17 @@ const MyPlan = () => {
                 {sortedList.map((item) => (
                     <div
                         key={item.id}
-                        className="flex min-h-[92px] w-full items-center gap-4 rounded-xl border border-[#222630] bg-[#15171D] px-4 py-3"
+                        className="flex min-h-[92px] w-full flex-col items-stretch gap-3 rounded-xl border border-[#222630] bg-[#15171D] px-4 py-3 sm:flex-row sm:items-center sm:gap-4"
                     >
                         <Link
                             href={`/workouts/${item.id}`}
-                            className="relative h-[72px] w-[120px] shrink-0 overflow-hidden rounded-lg"
+                            className="relative h-[180px] w-full shrink-0 overflow-hidden rounded-lg sm:h-[72px] sm:w-[120px]"
                         >
                             <Image
                                 src={item.image}
                                 alt={item.name}
                                 fill
-                                sizes="120px"
+                                sizes="(max-width: 640px) 100vw, 120px"
                                 className="object-cover"
                             />
                         </Link>
@@ -124,33 +124,38 @@ const MyPlan = () => {
                             </div>
                         </div>
 
-                        <Link
-                            href={`/workouts/${item.id}`}
-                            className="hidden h-9 shrink-0 cursor-pointer items-center justify-center whitespace-nowrap rounded-full border border-[#303541] px-4 text-xs text-white transition hover:bg-[#252832] sm:inline-flex"
-                        >
-                            View Details
-                        </Link>
+                        <div className="flex w-full flex-col gap-1.5 sm:w-auto sm:shrink-0 sm:flex-row">
+                            <Link
+                                href={`/workouts/${item.id}`}
+                                className="inline-flex h-8 w-full items-center justify-center whitespace-nowrap rounded-full border border-[#303541] px-3 text-xs text-white transition hover:bg-[#252832] sm:h-9 sm:w-auto sm:px-4"
+                            >
+                                View Details
+                            </Link>
 
-                        {activeTab === "Today’s Plan" && (
+                            {activeTab === "Today’s Plan" && (
+                                <button
+                                    type="button"
+                                    onClick={() => handleComplete(item.id)}
+                                    className="relative z-10 inline-flex h-8 w-full cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-full bg-[#C2F10D] px-3 text-xs font-bold text-black transition hover:bg-[#D4FF27] active:scale-95 sm:h-9 sm:w-auto sm:px-4"
+                                >
+                                    <FaCheck size={12} />
+                                    Mark as Done
+                                </button>
+                            )}
+
                             <button
                                 type="button"
-                                onClick={() => handleComplete(item.id)}
-                                className="relative z-10 inline-flex h-9 shrink-0 cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-full bg-[#C2F10D] px-4 text-xs font-bold text-black transition hover:bg-[#D4FF27] active:scale-95"
+                                onClick={() => handleRemove(item.id)}
+                                aria-label={`Remove ${item.name}`}
+                                title="Remove workout"
+                                className="relative z-10 inline-flex h-8 w-full shrink-0 cursor-pointer items-center justify-center rounded-full border border-[#303541] px-3 text-[#777B86] transition hover:bg-[#252832] hover:text-white sm:h-9 sm:w-9 sm:px-0"
                             >
-                                <FaCheck size={12} />
-                                Mark as Done
+                                <FaTimes size={14} />
+                                <span className="ml-2 text-xs sm:hidden">
+                                    Remove
+                                </span>
                             </button>
-                        )}
-
-                        <button
-                            type="button"
-                            onClick={() => handleRemove(item.id)}
-                            aria-label={`Remove ${item.name}`}
-                            title="Remove workout"
-                            className="relative z-10 shrink-0 cursor-pointer p-2 text-[#777B86] transition hover:text-white"
-                        >
-                            <FaTimes size={14} />
-                        </button>
+                        </div>
                     </div>
                 ))}
             </div>
