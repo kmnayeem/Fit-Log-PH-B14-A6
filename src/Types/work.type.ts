@@ -13,3 +13,10 @@ export interface IWorkout {
   description: string;
   instructions: string[];
 }
+
+export interface IWOContext {
+  buildList: IWorkout[];
+  wishList: IWorkout[];
+  setBuildList: React.Dispatch<React.SetStateAction<IWorkout[]>>;
+  setWishList: React.Dispatch<React.SetStateAction<IWorkout[]>>;
+}
